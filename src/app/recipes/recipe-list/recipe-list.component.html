@@ -6,16 +6,10 @@
 <hr>
 <div class="row">
     <div class="col-xs-12">
-        <!--content that will eventually be inside reciple item-->
-        <a href="#" class="list-group-item clearfix" *ngFor="">
-            <div class="pull-left">
-                <h4 class="list-group-item-heading">{{ Recipe.name }}</h4>
-                <p class="list-group-item-text">{{ recipe.description }}</p>
-            </div>
-            <span class="pull-right">
-                <img [src]="{{}}" alt="" class="img-responsive">
-            </span>
-        </a>
-        <recipe-item></recipe-item>
+        <recipe-item 
+            *ngFor="let recipeEl of recipes"
+            [recipe]="recipeEl"
+            (recipeWasSelected)="setSelectedRecipe($event)"
+        ></recipe-item>
     </div>
 </div>
